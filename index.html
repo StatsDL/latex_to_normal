@@ -7,15 +7,6 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>
-        window.MathJax = {
-            tex: {
-                packages: ['base', 'ams', 'amsmath', 'amsfonts', 'url', 'stfloats', 'verbatim', 'graphicx', 'cite', 'subcaption', 'booktabs', 'adjustbox', 'multirow', 'hyperref', 'xcolor'],
-                inlineMath: [['$', '$'], ['\\(', '\\)']],
-                displayMath: [['$$', '$$'], ['\\[', '\\]']]
-            }
-        };
-    </script>
 </head>
 <body>
     <div class="container">
@@ -40,54 +31,28 @@
 
     <style>
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: Arial, sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
-            background: linear-gradient(to right, #667eea, #764ba2);
-            color: #fff;
+            background-color: #f4f4f9;
         }
         .container {
             text-align: center;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         textarea {
-            width: 100%;
-            max-width: 500px;
-            height: 120px;
+            width: 300px;
+            height: 100px;
             margin-bottom: 20px;
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            resize: none;
-            font-size: 16px;
-        }
-        button {
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            background-color: #ff7e5f;
-            color: white;
-            font-size: 16px;
-            transition: background 0.3s ease;
-        }
-        button:hover {
-            background-color: #ff6b4f;
         }
         .output {
             margin-top: 20px;
-            padding: 20px;
+            padding: 10px;
             background: #fff;
-            border-radius: 5px;
-            color: #333;
+            border: 1px solid #ddd;
             display: inline-block;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
     </style>
 </body>
