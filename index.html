@@ -29,6 +29,7 @@
             </div>
             <div class="half">
                 <div id="output" class="output"></div>
+                <button onclick="copyToClipboard()" class="copy-btn">Copy Text</button>
             </div>
         </div>
         <div class="captcha-container">
@@ -44,6 +45,15 @@
             const outputDiv = document.getElementById('output');
             outputDiv.innerHTML = `\\[${latexInput}\\]`;
             MathJax.typesetPromise([outputDiv]).catch((err) => console.log(err));
+        }
+
+        function copyToClipboard() {
+            const outputDiv = document.getElementById('output');
+            navigator.clipboard.writeText(outputDiv.textContent).then(() => {
+                alert('Text copied to clipboard');
+            }).catch(err => {
+                console.error('Failed to copy text: ', err);
+            });
         }
 
         window.onload = convertLatex;  // Auto convert on load
@@ -103,6 +113,16 @@
             padding: 10px;
             border-radius: 5px;
             background: #f9f9f9;
+            position: relative;
+        }
+        .copy-btn {
+            margin-top: 10px;
+            padding: 5px 15px;
+            border: none;
+            border-radius: 5px;
+            background-color: #333;
+            color: white;
+            cursor: pointer;
         }
         .captcha-container {
             margin: 20px 0;
