@@ -20,9 +20,15 @@
 <body>
     <div class="container">
         <h1>LaTeX to Normal Text Converter</h1>
-        <textarea id="latex-input" placeholder="Enter LaTeX here...">\\textbf{Bold Text}, \\textit{Italic Text}, \\frac{a}{b}</textarea>
+        <div class="split-container">
+            <div class="half">
+                <textarea id="latex-input" placeholder="Enter LaTeX here...">\\textbf{Bold Text}, \\textit{Italic Text}, \\frac{a}{b}</textarea>
+            </div>
+            <div class="half">
+                <div id="output" class="output"></div>
+            </div>
+        </div>
         <button onclick="convertLatex()">Convert</button>
-        <div id="output" class="output"></div>
     </div>
 
     <script>
@@ -36,6 +42,8 @@
                 .replace(/\\\[|\\]|\\\(|\\\)/g, '');
             MathJax.typesetPromise([outputDiv]).catch((err) => console.log(err));
         }
+
+        window.onload = convertLatex;  // Auto convert on load
     </script>
 
     <style>
@@ -56,10 +64,16 @@
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
+        .split-container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .half {
+            width: 48%;
+        }
         textarea {
             width: 100%;
-            max-width: 500px;
-            height: 120px;
+            height: 200px;
             margin-bottom: 20px;
             padding: 10px;
             border: none;
@@ -81,13 +95,13 @@
             background-color: #ff6b4f;
         }
         .output {
-            margin-top: 20px;
             padding: 20px;
             background: #fff;
             border-radius: 5px;
             color: #333;
-            display: inline-block;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            height: 200px;
+            overflow-y: auto;
         }
     </style>
 </body>
