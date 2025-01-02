@@ -70,6 +70,8 @@
             padding: 30px;
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 1200px;
         }
         .tab-container {
             display: flex;
@@ -89,9 +91,12 @@
             display: flex;
             justify-content: space-between;
             margin-bottom: 20px;
+            flex-wrap: wrap;
         }
         .half {
             width: 48%;
+            min-width: 300px;
+            box-sizing: border-box;
         }
         textarea {
             width: 100%;
@@ -100,15 +105,16 @@
             padding: 10px;
             border: 1px solid #ddd;
             border-radius: 5px;
-            resize: none;
+            resize: vertical;
         }
         .output {
-            height: 150px;
+            min-height: 150px;
             border: 1px solid #ddd;
             padding: 10px;
             border-radius: 5px;
             background: #f9f9f9;
-            position: relative;
+            overflow-x: auto;
+            word-wrap: break-word;
         }
         .copy-btn {
             margin-top: 10px;
