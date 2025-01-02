@@ -11,7 +11,7 @@
 <body>
     <div class="container">
         <h1>LaTeX to Normal Text Converter</h1>
-        <textarea id="latex-input" placeholder="Enter LaTeX here..."></textarea>
+        <textarea id="latex-input" placeholder="Enter LaTeX here...">\\textbf{Bold Text}, \\textit{Italic Text}, \\frac{a}{b}</textarea>
         <button onclick="convertLatex()">Convert</button>
         <div id="output" class="output"></div>
     </div>
@@ -20,7 +20,11 @@
         function convertLatex() {
             const latexInput = document.getElementById('latex-input').value;
             const outputDiv = document.getElementById('output');
-            outputDiv.innerHTML = `\\(${latexInput}\\)`;
+            outputDiv.innerHTML = latexInput
+                .replace(/\\textbf{([^}]+)}/g, '<strong>$1</strong>')
+                .replace(/\\textit{([^}]+)}/g, '<em>$1</em>')
+                .replace(/\\frac{([^}]+)}{([^}]+)}/g, '($1/$2)')
+                .replace(/\\\[|\\]|\\\(|\\\)/g, '');
             MathJax.typesetPromise([outputDiv]).catch((err) => console.log(err));
         }
     </script>
