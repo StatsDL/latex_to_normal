@@ -21,7 +21,6 @@
     <div class="container">
         <div class="tab-container">
             <div class="tab active">LaTeX Converter</div>
-            <div class="tab">Readability Improver</div>
         </div>
         <div class="split-container">
             <div class="half">
@@ -31,10 +30,6 @@
                 <div id="output" class="output"></div>
                 <button onclick="copyToClipboard()" class="copy-btn">Copy Text</button>
             </div>
-        </div>
-        <div class="captcha-container">
-            <div id="captcha" class="captcha">1849</div>
-            <input type="text" placeholder="Enter the number here..">
         </div>
         <button onclick="convertLatex()">Convert</button>
     </div>
@@ -123,13 +118,6 @@
             background-color: #333;
             color: white;
             cursor: pointer;
-        }
-        .captcha-container {
-            margin: 20px 0;
-        }
-        .captcha {
-            font-weight: bold;
-            margin-bottom: 10px;
         }
         button {
             padding: 10px 20px;
