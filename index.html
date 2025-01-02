@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LaTeX to Normal Text Converter</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>LaTeX to Normal Text Converter</h1>
+        <textarea id="latex-input" placeholder="Enter LaTeX here..."></textarea>
+        <button onclick="convertLatex()">Convert</button>
+        <div id="output" class="output"></div>
+    </div>
+
+    <script>
+        function convertLatex() {
+            const latexInput = document.getElementById('latex-input').value;
+            const outputDiv = document.getElementById('output');
+            outputDiv.innerHTML = `\\(${latexInput}\\)`;
+            MathJax.typesetPromise([outputDiv]).catch((err) => console.log(err));
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f9;
+        }
+        .container {
+            text-align: center;
+        }
+        textarea {
+            width: 300px;
+            height: 100px;
+            margin-bottom: 20px;
+        }
+        .output {
+            margin-top: 20px;
+            padding: 10px;
+            background: #fff;
+            border: 1px solid #ddd;
+            display: inline-block;
+        }
+    </style>
+</body>
+</html>
